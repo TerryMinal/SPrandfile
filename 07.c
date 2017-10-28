@@ -45,12 +45,12 @@ int main(){
   printf("Reading rand_nums into a different array...\n");
   int new_rand = open("new_random", O_RDONLY);
   int new_arr[10];
-  int num_read = read(new_rand, &new_arr, sizeof(rand_nums));
+  int num_read = read(new_rand, &new_arr, sizeof(int[10]));
   if (errno) {
     printf("%s", strerror(errno));
   }
   for (i = 0; i < 10; i++) {
-    printf("random number read from file rand_num: %d\n", new_arr + i);
+    printf("random number read from file rand_num: %d\n", new_arr[i]);
   }
   printf("...done with reading rand_nums\n");
 
